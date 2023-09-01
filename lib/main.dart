@@ -34,6 +34,9 @@ class TodoList extends StatelessWidget {
         },
         initialRoute: MainPage.id,
         debugShowCheckedModeBanner: false,
+        // theme: ThemeData(
+        //   fontFamily: 'Poppins',
+        // ),
       ),
     );
   }

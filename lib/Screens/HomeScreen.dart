@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_list_app/Screens/notes_view_body.dart';
 import 'package:todo_list_app/Screens/settings_screen.dart';
 
 class HomePage extends StatelessWidget {
@@ -78,8 +79,10 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
 
+
                   ],
                 ),
+                NoteViewBody(),
               ],
             ),
           ),

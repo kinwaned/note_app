@@ -35,8 +35,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.15.1
-  flutter_bloc: ^8.1.3
+
+
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +54,9 @@ dev_dependencies:
   firebase_core_platform_interface: ^4.8.0
   google_fonts: ^5.1.0
   modal_progress_hud_nsn: ^0.4.0
+  firebase_core: ^2.15.1
+  flutter_bloc: ^8.1.3
+  font_awesome_flutter: ^10.5.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -81,10 +84,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-#  fonts:
-#   - family: Nunito
-#     fonts:
-#       - asset: assets/fonts/nunito.ttf
+  fonts:
+   - family: Poppins
+     fonts:
+       - asset: assets/fonts/Poppins-Regular.ttf
 
   #   - family: Trajan Pro
   #     fonts:
