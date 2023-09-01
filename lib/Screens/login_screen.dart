@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
                         ],
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(right: 40),
+                        padding: EdgeInsets.only(right: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -78,7 +78,7 @@ class LoginPage extends StatelessWidget {
                             Text(
                               'Take control and make every moment matters',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                               ),
                             ),
                           ],
