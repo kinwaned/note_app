@@ -26,13 +26,13 @@ class HomePage extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'Notes',
                           style: TextStyle(
-                              fontSize: 45, fontWeight: FontWeight.w700),
+                              fontSize: 45, fontWeight: FontWeight.w700, fontFamily: 'assets/fonts/Poppins-SemiBold.ttf'),
                         ),
                         // const SizedBox(
                         //   height: 1,
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
                         // ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Row(
                       children: [
                         Container(
@@ -61,7 +61,7 @@ class HomePage extends StatelessWidget {
                             icon: const Icon(Icons.search,color: Colors.white,),
                           ),
                         ),
-                        SizedBox(width: 10,),
+                        const SizedBox(width: 10,),
                         Container(
                           width: 50,
                           height: 50,
@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
 
                   ],
                 ),
-                NoteViewBody(),
+                const NoteViewBody(),
               ],
             ),
           ),
