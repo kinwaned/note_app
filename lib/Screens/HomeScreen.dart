@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
+      floatingActionButton: FloatingActionButton(onPressed: (){}, child: Icon(Icons.add),),
+      body:const SafeArea(
         child: Padding(
           padding:  EdgeInsets.all(20.0),
           child: Column(
