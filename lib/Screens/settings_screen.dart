@@ -204,7 +204,11 @@ class _SettingsPageState extends State<SettingsPage> {
                     height: 18,
                   ),
                   MySettingsButton(
-                    function: () {},
+                    function: () {
+                      showAboutDialog(context: context, applicationName: 'Notes', applicationIcon: FlutterLogo(), applicationVersion: '1.0.0', children: [
+                        Text('My second Notes app')
+                      ]);
+                    },
                     text: 'About us',
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
