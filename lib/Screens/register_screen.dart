@@ -62,7 +62,7 @@ class RegisterPage extends StatelessWidget {
                         ],
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(left: 30),
+                        padding: EdgeInsets.only(right: 20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
