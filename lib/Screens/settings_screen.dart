@@ -45,7 +45,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         const Text(
                           'Profile',
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 20,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -60,11 +60,11 @@ class _SettingsPageState extends State<SettingsPage> {
                       Navigator.pushNamed(context, LoginPage.id);
                     },
                     child: Container(
-                      width: 100,
-                      height: 100,
+                      width: 70,
+                      height: 70,
                       decoration: const BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('assets/images/image.JPG'),
+                              image: AssetImage('assets/images/PngItem_4042710.png'),
                               fit: BoxFit.cover),
                           shape: BoxShape.circle,
                           color: Colors.black),
@@ -76,7 +76,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   Text(
                     user.email!,
                     style: const TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
