@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_list_app/components/custom_field.dart';
 import 'package:todo_list_app/components/my_button.dart';
 import 'package:todo_list_app/components/my_text_field_note.dart';
 
@@ -16,7 +17,8 @@ class AddNotes extends StatelessWidget {
         children: [
           MyTextFormFieldNote(controller: titleController, hintText: 'Title'),
           SizedBox(height: 10,),
-          MyTextFormFieldNote(controller: contentController, hintText: 'Content'),
+          MyTextFormFieldNote(controller: contentController, hintText: 'Content', maxLine: 5,),
+          SizedBox(height: 10,),
           Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 30),
