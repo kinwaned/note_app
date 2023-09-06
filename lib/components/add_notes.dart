@@ -13,18 +13,19 @@ class AddNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 30),
-      child: Column(
-        children: [
-          MyTextFormFieldNote(controller: titleController, hintText: 'Title'),
-          SizedBox(height: 10,),
-          MyTextFormFieldNote(controller: contentController, hintText: 'Content', maxLine: 5,),
-          SizedBox(height: 10,),
-          Spacer(),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 30),
-            child: MyButton(onTap: (){}, text: 'Add'),
-          ),
-          ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            MyTextFormFieldNote(controller: titleController, hintText: 'Title'),
+            SizedBox(height: 10,),
+            MyTextFormFieldNote(controller: contentController, hintText: 'Content', maxLine: 5,),
+            SizedBox(height: 60,),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 30),
+              child: MyButton(onTap: (){}, text: 'Add'),
+            ),
+            ],
+        ),
       ),
     );
   }
