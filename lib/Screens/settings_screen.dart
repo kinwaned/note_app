@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_list_app/Screens/HomeScreen.dart';
 import 'package:todo_list_app/Screens/login_screen.dart';
 import 'package:todo_list_app/components/constants.dart';
 import 'package:todo_list_app/components/my_button.dart';
@@ -57,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, LoginPage.id);
+                      Navigator.pushNamed(context, HomePage.id);
                     },
                     child: Container(
                       width: 70,

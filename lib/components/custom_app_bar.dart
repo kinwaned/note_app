@@ -3,19 +3,22 @@ import 'package:flutter/material.dart';
 import '../Screens/settings_screen.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({super.key, required this.title, required this.icon});
+
+  final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Column(
+         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Notes',
-              style: TextStyle(
+              title,
+              style:const TextStyle(
                   fontSize: 45,
                   fontWeight: FontWeight.w700,
                   fontFamily: 'assets/fonts/Poppins-SemiBold.ttf'),
@@ -44,8 +47,8 @@ class CustomAppBar extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () {},
-                icon: const Icon(
-                  Icons.search,
+                icon:  Icon(
+                  icon,
                   color: Colors.white,
                 ),
               ),
@@ -64,7 +67,7 @@ class CustomAppBar extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, SettingsPage.id);
                 },
-                icon: const Icon(
+                icon:  Icon(
                   Icons.settings,
                   color: Colors.white,
                 ),
