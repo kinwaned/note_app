@@ -4,23 +4,23 @@
 import 'package:flutter/material.dart';
 
 class MyTextFormFieldNote extends StatelessWidget {
-  const MyTextFormFieldNote({Key? key,required this.controller, required this.hintText,@required this.maxLine, }) : super(key: key);
+  const MyTextFormFieldNote({Key? key, required this.hintText,@required this.maxLine, this.onSaved}) : super(key: key);
 
-  final TextEditingController controller;
   final String hintText;
   final int? maxLine;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextFormField(
-        validator: (data){
-          if (data!.isEmpty){
+        onSaved: onSaved,
+        validator: (value){
+          if (value?.isEmpty ?? true){
             return ('Field is required');
           }
           return null;
         },
-        controller: controller,
         maxLines: maxLine,
         decoration: InputDecoration(
             hintText:  hintText,

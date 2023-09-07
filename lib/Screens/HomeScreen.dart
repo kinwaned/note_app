@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
       ),
       body: const SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: EdgeInsets.only(left: 20, right: 20, top: 20,),
           child: Column(
             children: [
               CustomAppBar(title: 'Notes', icon: Icons.search,),
