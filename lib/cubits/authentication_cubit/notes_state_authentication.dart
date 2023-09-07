@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-part of 'notes_cubit.dart';
+part of 'notes_cubit_authentication.dart';
 
 @immutable
 abstract class NotesState {}

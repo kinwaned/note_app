@@ -6,9 +6,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:todo_list_app/Screens/login_screen.dart';
 import 'package:todo_list_app/Screens/register_screen.dart';
 import 'package:todo_list_app/Screens/settings_screen.dart';
-import 'package:todo_list_app/cubits/cubit/notes_cubit.dart';
 import 'package:todo_list_app/services/main_screen.dart';
 import 'Screens/edit_note_view.dart';
+import 'cubits/authentication_cubit/notes_cubit_authentication.dart';
 import 'firebase_options.dart';
 
 void main() async {

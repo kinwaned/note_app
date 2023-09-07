@@ -7,9 +7,9 @@ import 'package:todo_list_app/Screens/HomeScreen.dart';
 import 'package:todo_list_app/Screens/register_screen.dart';
 import 'package:todo_list_app/components/my_button.dart';
 import 'package:todo_list_app/components/my_text_field.dart';
-import 'package:todo_list_app/cubits/cubit/notes_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../cubits/authentication_cubit/notes_cubit_authentication.dart';
 import '../helper/show_snack_bar.dart';
 
 
