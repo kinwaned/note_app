@@ -6,6 +6,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:todo_list_app/Screens/login_screen.dart';
 import 'package:todo_list_app/Screens/register_screen.dart';
 import 'package:todo_list_app/Screens/settings_screen.dart';
+import 'package:todo_list_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:todo_list_app/model/note_model.dart';
 import 'package:todo_list_app/services/main_screen.dart';
 import 'package:todo_list_app/simple_bloc_observer.dart';
@@ -14,10 +15,9 @@ import 'cubits/authentication_cubit/notes_cubit_authentication.dart';
 import 'firebase_options.dart';
 
 void main() async {
-
-  Bloc.observer = SimpleBlockObserver();
   await Hive.initFlutter();
-  await Hive.openBox(kNoteBox);
+  Bloc.observer = SimpleBlockObserver();
+  await Hive.openBox<NoteModel>(kNoteBox);
   Hive.registerAdapter(NoteModelAdapter());
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -31,26 +31,28 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: MaterialApp(
-        routes: {
-          LoginPage.id: (context) => LoginPage(),
-          RegisterPage.id: (context) => RegisterPage(),
-          HomePage.id: (context) => const HomePage(),
-          MainPage.id: (context) => const MainPage(),
-          SettingsPage.id: (context) => const SettingsPage(),
-          EditNoteView.id: (context) => const EditNoteView(),
-        },
-        initialRoute: MainPage.id,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'Poppins',
+    return MultiBlocProvider(
+      providers: [BlocProvider(create: (context)=> AddNoteCubit())],
+      child: BlocProvider(
+        create: (context) => NotesCubit(),
+        child: MaterialApp(
+          routes: {
+            LoginPage.id: (context) => LoginPage(),
+            RegisterPage.id: (context) => RegisterPage(),
+            HomePage.id: (context) => const HomePage(),
+            MainPage.id: (context) => const MainPage(),
+            SettingsPage.id: (context) => const SettingsPage(),
+            EditNoteView.id: (context) => const EditNoteView(),
+          },
+          initialRoute: MainPage.id,
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            fontFamily: 'Poppins',
+          ),
         ),
       ),
     );
   }
 }
-
 
 const kNoteBox = 'note_box';
