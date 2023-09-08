@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_list_app/components/add_notes.dart';
 import 'package:todo_list_app/components/custom_app_bar.dart';
-import 'package:todo_list_app/components/notes_item_list_view.dart';
+import 'package:todo_list_app/Screens/notes_item_list_view.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
