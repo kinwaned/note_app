@@ -8,11 +8,14 @@ import 'package:todo_list_app/Screens/register_screen.dart';
 import 'package:todo_list_app/Screens/settings_screen.dart';
 import 'package:todo_list_app/model/note_model.dart';
 import 'package:todo_list_app/services/main_screen.dart';
+import 'package:todo_list_app/simple_bloc_observer.dart';
 import 'Screens/edit_note_view.dart';
 import 'cubits/authentication_cubit/notes_cubit_authentication.dart';
 import 'firebase_options.dart';
 
 void main() async {
+
+  Bloc.observer = SimpleBlockObserver();
   await Hive.initFlutter();
   await Hive.openBox(kNoteBox);
   Hive.registerAdapter(NoteModelAdapter());
