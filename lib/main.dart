@@ -17,8 +17,8 @@ import 'firebase_options.dart';
 void main() async {
   await Hive.initFlutter();
   Bloc.observer = SimpleBlockObserver();
-  await Hive.openBox<NoteModel>(kNoteBox);
   Hive.registerAdapter(NoteModelAdapter());
+  await Hive.openBox<NoteModel>(kNoteBox);
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -31,24 +31,21 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context)=> AddNoteCubit())],
-      child: BlocProvider(
-        create: (context) => NotesCubit(),
-        child: MaterialApp(
-          routes: {
-            LoginPage.id: (context) => LoginPage(),
-            RegisterPage.id: (context) => RegisterPage(),
-            HomePage.id: (context) => const HomePage(),
-            MainPage.id: (context) => const MainPage(),
-            SettingsPage.id: (context) => const SettingsPage(),
-            EditNoteView.id: (context) => const EditNoteView(),
-          },
-          initialRoute: MainPage.id,
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            fontFamily: 'Poppins',
-          ),
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: MaterialApp(
+        routes: {
+          LoginPage.id: (context) => LoginPage(),
+          RegisterPage.id: (context) => RegisterPage(),
+          HomePage.id: (context) => const HomePage(),
+          MainPage.id: (context) => const MainPage(),
+          SettingsPage.id: (context) => const SettingsPage(),
+          EditNoteView.id: (context) => const EditNoteView(),
+        },
+        initialRoute: MainPage.id,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          fontFamily: 'Poppins',
         ),
       ),
     );
