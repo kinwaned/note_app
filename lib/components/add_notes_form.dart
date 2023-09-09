@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_list_app/components/add_button.dart';
 import 'package:todo_list_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:todo_list_app/model/note_model.dart';
-
-import 'my_button.dart';
+import 'package:intl/intl.dart';
 import 'my_text_field_note.dart';
 
 class AddNoteForm extends StatefulWidget {
@@ -14,6 +13,7 @@ class AddNoteForm extends StatefulWidget {
 
   @override
   State<AddNoteForm> createState() => _AddNoteFormState();
+
 }
 
 class _AddNoteFormState extends State<AddNoteForm> {
@@ -23,8 +23,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
 
   String? title, subTitle;
 
+
+
   @override
   Widget build(BuildContext context) {
+
     return Form(
       key: formKey,
       child: Column(
@@ -57,13 +60,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
                   onTap: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
+
+                      var currentDate = DateTime.now();
+                      var formattedDate = DateFormat('EE-dd-mm-yyyy').format(currentDate);
                       var notesModel = NoteModel(
-                          color: Colors.black.value,
-                          date: DateTime.now().toString(),
+                          color: Colors.white.value,
+                          date: formattedDate,
                           subTitle: subTitle!,
                           title: title!);
-                      BlocProvider.of<AddNoteCubit>(context).addNote(
-                          notesModel);
+                      BlocProvider.of<AddNoteCubit>(context).addNote(notesModel);
                     } else {
                       autoValidateMode = AutovalidateMode.always;
                       setState(() {});

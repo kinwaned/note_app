@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_list_app/Screens/HomeScreen.dart';
+import 'package:todo_list_app/view/notes_view.dart';
 import 'package:todo_list_app/Screens/login_screen.dart';
 import 'package:todo_list_app/components/constants.dart';
 import 'package:todo_list_app/components/my_button.dart';
@@ -58,7 +58,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, HomePage.id);
+                      Navigator.pushNamed(context, NotesView.id);
                     },
                     child: Container(
                       width: 70,
@@ -206,8 +206,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   MySettingsButton(
                     function: () {
-                      showAboutDialog(context: context, applicationName: 'Notes', applicationIcon: FlutterLogo(), applicationVersion: '1.0.0', children: [
-                        Text('My second Notes app')
+                      showAboutDialog(context: context, applicationName: 'Notes', applicationIcon: const FlutterLogo(), applicationVersion: '1.0.0', children: [
+                        const Text('My second Notes app')
                       ]);
                     },
                     text: 'About us',

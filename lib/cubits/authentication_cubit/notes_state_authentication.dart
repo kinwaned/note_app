@@ -3,20 +3,20 @@
 part of 'notes_cubit_authentication.dart';
 
 @immutable
-abstract class NotesState {}
+abstract class AuthNotesState {}
 
-class NotesInitial extends NotesState {}
-class NotesLoginLoading extends NotesState {}
-class NotesLoginSuccess extends NotesState {}
-class NotesLoginFailure extends NotesState {
+class NotesInitial extends AuthNotesState {}
+class NotesLoginLoading extends AuthNotesState {}
+class NotesLoginSuccess extends AuthNotesState {}
+class NotesLoginFailure extends AuthNotesState {
   String errMessage;
   NotesLoginFailure({
     required this.errMessage,
 });
 }
-class NotesRegisterLoading extends NotesState {}
-class NotesRegisterSuccess extends NotesState {}
-class NotesRegisterFailure extends NotesState {
+class NotesRegisterLoading extends AuthNotesState {}
+class NotesRegisterSuccess extends AuthNotesState {}
+class NotesRegisterFailure extends AuthNotesState {
   String errMessage;
   NotesRegisterFailure({
     required this.errMessage,

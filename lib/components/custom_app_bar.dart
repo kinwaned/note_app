@@ -67,7 +67,7 @@ class CustomAppBar extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, SettingsPage.id);
                 },
-                icon:  Icon(
+                icon:  const Icon(
                   Icons.settings,
                   color: Colors.white,
                 ),

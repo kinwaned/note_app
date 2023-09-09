@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:todo_list_app/Screens/HomeScreen.dart';
+import 'package:todo_list_app/view/notes_view.dart';
 import 'package:todo_list_app/Screens/login_screen.dart';
 
 class MainPage extends StatelessWidget {
@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot){
           if(snapshot.hasData) {
-            return const HomePage();
+            return const NotesView();
           }else{
             return LoginPage();
           }

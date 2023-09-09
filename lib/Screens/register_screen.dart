@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todo_list_app/Screens/HomeScreen.dart';
+import 'package:todo_list_app/view/notes_view.dart';
 import 'package:todo_list_app/Screens/login_screen.dart';
 import 'package:todo_list_app/components/my_button.dart';
 import 'package:todo_list_app/components/my_text_field.dart';
@@ -29,12 +29,12 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<NotesCubit, NotesState>(
+    return BlocListener<AuthNotesCubit, AuthNotesState>(
       listener: (context, state) {
         if (state is NotesRegisterLoading){
           isLoading = true;
         }else if (state is NotesRegisterSuccess){
-          Navigator.pushNamed(context, HomePage.id);
+          Navigator.pushNamed(context, NotesView.id);
           showSnackBar(context, 'Welcome to our app');
         }else if (state is NotesRegisterFailure){
           showSnackBar(context, state.errMessage);
@@ -119,7 +119,7 @@ class RegisterPage extends StatelessWidget {
                       MyButton(
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
-                            BlocProvider.of<NotesCubit>(context).signUp(email: email!, password: password!);
+                            BlocProvider.of<AuthNotesCubit>(context).signUp(email: email!, password: password!);
                           } else {}
                         },
                         text: 'Register',

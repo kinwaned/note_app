@@ -4,8 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 part 'notes_state_authentication.dart';
 
-class NotesCubit extends Cubit<NotesState> {
-  NotesCubit() : super(NotesInitial());
+class AuthNotesCubit extends Cubit<AuthNotesState> {
+  AuthNotesCubit() : super(NotesInitial());
   final passwordController = TextEditingController();
 
   final emailController = TextEditingController();

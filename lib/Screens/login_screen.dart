@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todo_list_app/Screens/HomeScreen.dart';
+import 'package:todo_list_app/view/notes_view.dart';
 import 'package:todo_list_app/Screens/register_screen.dart';
 import 'package:todo_list_app/components/my_button.dart';
 import 'package:todo_list_app/components/my_text_field.dart';
@@ -29,12 +29,12 @@ class LoginPage extends StatelessWidget {
   // @override
   @override
   Widget build(BuildContext context) {
-    return BlocListener<NotesCubit, NotesState>(
+    return BlocListener<AuthNotesCubit, AuthNotesState>(
       listener: (context, state) {
         if (state is NotesLoginLoading){
           isLoading = true;
         }else if (state is NotesLoginSuccess){
-          Navigator.pushNamed(context, HomePage.id);
+          Navigator.pushNamed(context, NotesView.id);
           showSnackBar(context, 'You\'re logged in');
         }else if (state is NotesLoginFailure){
           showSnackBar(context, state.errMessage);
@@ -88,7 +88,7 @@ class LoginPage extends StatelessWidget {
                         height: 40,
                       ),
                       MyTextFormField(
-                          controller: BlocProvider.of<NotesCubit>(context).emailController,
+                          controller: BlocProvider.of<AuthNotesCubit>(context).emailController,
                           hintText: 'Email',
                           obscureText: false,
                           prefixIcon: const Icon(Icons.mail), suffixIcon: null,),
@@ -98,7 +98,7 @@ class LoginPage extends StatelessWidget {
                       MyTextFormField(
                           hintText: 'Password',
                           obscureText: true,
-                          controller: BlocProvider.of<NotesCubit>(context).passwordController,
+                          controller: BlocProvider.of<AuthNotesCubit>(context).passwordController,
                           suffixIcon: const Icon(Icons.remove_red_eye),
                           prefixIcon: const Icon(Icons.key)),
                       const SizedBox(
@@ -123,7 +123,7 @@ class LoginPage extends StatelessWidget {
                       MyButton(
                         onTap: () async {
                           if (formKey.currentState!.validate()) {
-                            BlocProvider.of<NotesCubit>(context).signIn();
+                            BlocProvider.of<AuthNotesCubit>(context).signIn();
                           } else {}
                         },
                         text: 'Login',
