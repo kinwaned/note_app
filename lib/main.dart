@@ -33,6 +33,7 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MultiBlocProvider(
       providers: [
         BlocProvider<NotesCubit>(create: (context) => NotesCubit()),
@@ -46,7 +47,7 @@ class TodoList extends StatelessWidget {
           NotesView.id: (context) => const NotesView(),
           MainPage.id: (context) => const MainPage(),
           SettingsPage.id: (context) => const SettingsPage(),
-          EditNoteView.id: (context) => const EditNoteView(),
+          // EditNoteView.id: (context) =>  EditNoteView(note: null,),
         },
         initialRoute: MainPage.id,
         debugShowCheckedModeBanner: false,

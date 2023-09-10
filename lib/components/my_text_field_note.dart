@@ -4,16 +4,18 @@
 import 'package:flutter/material.dart';
 
 class MyTextFormFieldNote extends StatelessWidget {
-  const MyTextFormFieldNote({Key? key, required this.hintText,@required this.maxLine, this.onSaved}) : super(key: key);
+  const MyTextFormFieldNote({Key? key, required this.hintText,@required this.maxLine, this.onSaved, this.onChanged}) : super(key: key);
 
   final String hintText;
   final int? maxLine;
   final void Function(String?)? onSaved;
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: TextFormField(
+        onChanged: onChanged,
         onSaved: onSaved,
         validator: (value){
           if (value?.isEmpty ?? true){

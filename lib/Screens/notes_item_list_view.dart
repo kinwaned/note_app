@@ -6,7 +6,7 @@ import 'package:todo_list_app/model/note_model.dart';
 import '../components/custom_note_item.dart';
 
 class NotesListView extends StatelessWidget {
-  const NotesListView({super.key,});
+  const NotesListView({super.key, });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class NotesListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return  Padding(
                   padding:const EdgeInsets.symmetric(vertical: 4),
-                  child: NoteItem(notes: notes[index],
+                  child: NoteItem(note: notes[index],
                   ),
                 );
               }),
