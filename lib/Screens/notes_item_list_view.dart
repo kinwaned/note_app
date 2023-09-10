@@ -10,10 +10,17 @@ class NotesListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
         List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes!;
-        return Padding(
+        if (notes.isEmpty ){
+          return const Padding(
+            padding: EdgeInsets.only(bottom: 70),
+            child: Center(child: Text('No notes to display!', style: TextStyle(fontSize: 20),)),
+          );
+        }else {
+          return Padding(
           padding: const EdgeInsets.symmetric(vertical: 16),
           child: ListView.builder(
               itemCount: notes.length,
@@ -26,6 +33,7 @@ class NotesListView extends StatelessWidget {
                 );
               }),
         );
+        }
       },
     );
   }
