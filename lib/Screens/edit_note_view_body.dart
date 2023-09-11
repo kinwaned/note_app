@@ -4,7 +4,10 @@ import 'package:todo_list_app/components/my_text_field_note.dart';
 import 'package:todo_list_app/cubits/notes/notes_cubit.dart';
 import 'package:todo_list_app/model/note_model.dart';
 
+import '../components/ColorListView.dart';
 import '../components/custom_app_bar.dart';
+import '../components/edit_color_list.dart';
+import '../constants.dart';
 
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({super.key, required this.note});
@@ -59,6 +62,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
                 hintText:widget.note.subTitle,
                 maxLine: 5,
               ),
+              EditColorList(note: widget.note),
             ],
           ),
         ],
@@ -66,3 +70,5 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
     );
   }
 }
+
+

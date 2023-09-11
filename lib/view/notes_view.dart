@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_list_app/components/add_notes.dart';
 import 'package:todo_list_app/components/custom_app_bar.dart';
 import 'package:todo_list_app/Screens/notes_item_list_view.dart';
+import 'package:todo_list_app/constants.dart';
 import 'package:todo_list_app/cubits/notes/notes_cubit.dart';
 import 'package:todo_list_app/view/widgets/notes_view_body.dart';
 
@@ -18,6 +19,8 @@ class NotesView extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(
+        splashColor: Colors.white,
+        backgroundColor: Colors.black,
         onPressed: () {
           showModalBottomSheet(
               isScrollControlled: true,
